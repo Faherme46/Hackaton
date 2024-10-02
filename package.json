@@ -25,6 +25,8 @@
     "bootstrap": "^5.3.3",
     "chartjs": "^0.3.24",
     "express": "^4.18.2",
+    "node": "^22.9.0",
+    "nombre-del-proyecto": "file:",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
