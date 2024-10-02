@@ -1,7 +1,13 @@
-export interface Usuario {
-  idUsuario:number;
-  nombre:string;
-  cedula:string;
+
+export interface Users{
+  [key: number]: User;
+}
+
+export interface User {
+
+    idUsuario: number;
+    nombre: string;
+    cedula: string;
 }
 export interface LavadoDeManos {
   idlavadodemanos:number
