@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { User, LavadoDeManos, LavadoConAlcohol } from '../interfaces/hack'
+import { Usuario, LavadoDeManos, LavadoConAlcohol} from '../interfaces/hack'
 
 @Injectable({
   providedIn: 'root'
 })
-export class CollectionServiceService {
+export class CollectionService {
 
-  public user: User[];
+  public user: Usuario[];
   public lavado: LavadoDeManos[]
   public alcohol: LavadoConAlcohol[]
   constructor() {

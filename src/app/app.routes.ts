@@ -19,5 +19,17 @@ export const routes: Routes = [
     data: {
       title: 'Registro'
     }
+  },{
+    path: 'alcohol',
+    loadComponent: () => import('./views/alcohol/alcohol.component').then(m => m.AlcoholComponent),
+    data: {
+      title: 'Registro'
+    }
+  },{
+    path: 'rank',
+    loadComponent: () => import('./views/rank/rank.component').then(m => m.RankComponent),
+    data: {
+      title: 'Registro'
+    }
   }
 ];

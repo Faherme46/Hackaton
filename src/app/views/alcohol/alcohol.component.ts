@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { CollectionService } from '../../services/collection.service';
 @Component({
   selector: 'app-alcohol',
   standalone: true,
@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
   styleUrl: './alcohol.component.css'
 })
 export class AlcoholComponent {
-
 }

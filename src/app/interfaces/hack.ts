@@ -1,4 +1,4 @@
-export interface User {
+export interface Usuario {
   idUsuario:number;
   nombre:string;
   cedula:string;
@@ -17,3 +17,5 @@ export interface LavadoConAlcohol {
   Horadeuso:Date;
   Lugarlavado :string;
 }
+
+
