@@ -9,9 +9,15 @@ export const routes: Routes = [
     }
   },{
     path: 'login',
-    loadComponent: () => import('./views/lavado/lavado.component').then(m => m.LavadoComponent),
+    loadComponent: () => import('./views/login/login.component').then(m => m.LoginComponent),
     data: {
       title: 'Login'
+    }
+  },{
+    path: 'registro',
+    loadComponent: () => import('./views/registro/registro.component').then(m => m.RegistroComponent),
+    data: {
+      title: 'Registro'
     }
   }
 ];
