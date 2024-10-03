@@ -6,8 +6,7 @@
     <div class="card-body h-80 d-flex p-0">
       <div class="col-3 bg-secondary-subtle">
         <div class="list-group rounded-top-0">
-          <a href="#" class="list-group-item fs-4 list-group-item-action active"
-            aria-current="true">
+          <a href="#" class="list-group-item fs-4 list-group-item-action text-light active">
             Historial del dia
           </a>
           <a href="#" class="list-group-item fs-4 list-group-item-action">A
@@ -18,27 +17,17 @@
             fourth link item</a>
         </div>
       </div>
-      <div class="col-9 ps-2">
+      <div class="col-9 px-0 table-fixed-header table-responsive">
         <table class="table">
           <thead>
             <tr>
               <th>Nombre</th>
               <th>Lugar</th>
               <th>Hora</th>
-
+              <th *ngIf="!alcoholTab">Duracion</th>
             </tr>
           </thead>
-          <tbody class="table-group-divider" *ngIf="alcoholTab">
-
-            <tr *ngFor="let item of lavado" >
-              <td>
-                {{item.idUsuario}}
-              </td>
-              <td>{{item.lugarLavado}}</td>
-              <td>{{item.dates.h}}</td>
-            </tr>
-          </tbody>
-          <tbody class="table-group-divider" *ngIf="!alcoholTab">
+          <tbody class="table-group-divider">
 
             <tr *ngFor="let item of lavado" >
               <td>
@@ -46,6 +35,7 @@
               </td>
               <td>{{item.lugarLavado}}</td>
               <td>{{item.dates.h}}</td>
+              <td  *ngIf="!alcoholTab">{{item.duracion}}</td>
             </tr>
           </tbody>
         </table>

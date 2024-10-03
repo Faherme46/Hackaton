@@ -13,6 +13,7 @@ export class LavadoComponent {
 
 
   private unsubscribe: any;
+  private unsubscribe2: any;
   public lavado: any[] = [];
   public doctores: any;
   public alcoholTab: boolean = false;
@@ -21,15 +22,15 @@ export class LavadoComponent {
   }
 
   ngOnInit() {
-
+    this.unsubscribe = this.firebaseService.listenToDoctores((data: any) => {
+          this.doctores = data;  // Actualizar la lista de usuarios en el componente
+        });
     // Escuchar actualizaciones en tiempo real de la colección "Usuarios"
-    this.unsubscribe = this.firebaseService.listenToLavado((data: any) => {
+    this.unsubscribe2 = this.firebaseService.listenToLavado((data: any) => {
       this.lavado = data;  // Actualizar la lista de usuarios en el componente
     });
 
-    this.unsubscribe = this.firebaseService.listenToDoctores((data: any) => {
-      this.doctores = data;  // Actualizar la lista de usuarios en el componente
-    });
+
 
 
 

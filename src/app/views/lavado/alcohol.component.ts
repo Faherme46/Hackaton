@@ -14,6 +14,7 @@ export class AlcoholComponent {
 
   lavado: any[] = [];
   private unsubscribe: any;
+  private unsubscribe2: any;
 
   public doctores:any;
   public alcoholTab:boolean=true;
@@ -22,12 +23,13 @@ export class AlcoholComponent {
 
   }
   ngOnInit() {
-    // Escuchar actualizaciones en tiempo real de la colección "Usuarios"
-    this.unsubscribe = this.firebaseService.listenToAlcohol((data: any) => {
-      this.lavado = data;  // Actualizar la lista de usuarios en el componente
-    });
+
     this.unsubscribe = this.firebaseService.listenToDoctores((data: any) => {
       this.doctores = data;  // Actualizar la lista de usuarios en el componente
+    });
+    // Escuchar actualizaciones en tiempo real de la colección "Usuarios"
+    this.unsubscribe2 = this.firebaseService.listenToAlcohol((data: any) => {
+      this.lavado = data;  // Actualizar la lista de usuarios en el componente
     });
   }
   ngOnDestroy() {
@@ -36,8 +38,8 @@ export class AlcoholComponent {
       this.unsubscribe();
     }
   }
-  getName(id:any){
-    return this.doctores[id];
+  getName(id: any) {
+    return this.doctores[id.toString()].nombre;
   }
 
 }
