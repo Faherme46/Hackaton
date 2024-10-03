@@ -1,3 +1,113 @@
 .h-80{
   min-height: 80vh;
 }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.card {
+  background: linear-gradient(145deg, #ffffff, #f3f4f6);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-header {
+  background-color: #3498db;
+  padding: 1.5rem;
+  border-bottom: none;
+}
+
+.card-header h2 {
+  color: white;
+  font-size: 2rem;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 0;
+}
+
+.list-group {
+  border-radius: 0;
+}
+
+.list-group-item {
+  border: none;
+  padding: 1rem 1.5rem;
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  transition: all 0.3s ease;
+}
+
+.list-group-item:hover {
+  background-color: #d5dbdb;
+  transform: translateX(5px);
+}
+
+.list-group-item.active {
+  background-color: #2980b9;
+  border-color: #2980b9;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table thead th {
+  background-color: #3498db;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1rem;
+  border: none;
+}
+
+.table tbody td {
+  padding: 1rem;
+  vertical-align: middle;
+  border-color: #ecf0f1;
+  transition: all 0.3s ease;
+}
+
+.table-group-divider tr {
+  background-color: #ffffff;
+}
+
+.table-group-divider tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table-group-divider tr:hover {
+  background-color: #e8f4f8;
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .card-body {
+    flex-direction: column;
+  }
+
+  .col-3, .col-9 {
+    width: 100%;
+  }
+
+  .list-group {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .list-group-item {
+    flex: 0 0 auto;
+  }
+}

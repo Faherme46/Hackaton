@@ -16,14 +16,14 @@ export class FirebaseService {
 
   public firebaseConfig:any;
   constructor() {
-    this.firebaseConfig = {
-      apiKey: "AIzaSyAzk5jJJIDZc0HKoI_NtLHDIP9u7y-HXEo",
-      authDomain: "hackaton-188e9.firebaseapp.com",
-      projectId: "hackaton-188e9",
-      storageBucket: "hackaton-188e9.appspot.com",
-      messagingSenderId: "662436821049",
-      appId: "1:662436821049:web:05543140281cc38db4f5e8",
-      measurementId: "G-SBD25CY4RH"
+    const firebaseConfig = {
+      apiKey: "AIzaSyDL6_b5CigukPtghhtcouIDs1S-gd-62Sg",
+      authDomain: "hackaton-b6eed.firebaseapp.com",
+      projectId: "hackaton-b6eed",
+      storageBucket: "hackaton-b6eed.appspot.com",
+      messagingSenderId: "846392014157",
+      appId: "1:846392014157:web:bbbdc13dd8736bb2c13304",
+      measurementId: "G-NS6VREYTSW"
     };
     // Initialize Firebase
 

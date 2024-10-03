@@ -1,1 +1,24 @@
-<p>rank works!</p>
+<div class="ranking-container">
+  <h2>Ranking de los mejores Participantes</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Posición</th>
+        <th>Nombre</th>
+        <th>Puntuación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let doctores of  doctores; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ doctores.name }}</td>
+        <td>{{ doctores.score }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="winner" class="winner-announcement">
+    <h3>¡Ganador del Ranking!</h3>
+    <p>{{ winner.name }} con una puntuación de {{ winner.score }}</p>
+  </div>
+</div>
