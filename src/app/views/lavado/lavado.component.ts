@@ -1,12 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, booleanAttribute } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
-import { CollectionService } from '../../services/collection.service';
 import { CommonModule } from '@angular/common';
 import { HistorialComponent } from './historial/historial.component';
+import { ActivatedRoute } from '@angular/router';
+import { AreasComponent } from "./areas/areas.component";
 @Component({
   selector: 'app-lavado',
   standalone: true,
-  imports: [CommonModule,HistorialComponent],
+  imports: [CommonModule, HistorialComponent, AreasComponent],
   templateUrl: './lavado.component.html',
   styleUrl: './lavado.component.css'
 })
@@ -18,7 +19,17 @@ export class LavadoComponent {
   public lavado: any[] = [];
   public doctores: any;
   public alcoholTab: boolean = false;
-  constructor(private firebaseService: FirebaseService) {
+  public alcoholValue:string | null='1';
+  public tabs:any={
+    1:'Historial ',
+    2:'Grafica Mensual ',
+    3:'Grafica Areas '
+  }
+
+  public tab:string | null='1';
+  constructor(private firebaseService: FirebaseService,
+    private route: ActivatedRoute
+  ) {
 
   }
 
@@ -30,9 +41,9 @@ export class LavadoComponent {
     this.unsubscribe2 = this.firebaseService.listenToLavado((data: any) => {
       this.lavado = data;  // Actualizar la lista de usuarios en el componente
     });
-
-
-
+    this.alcoholTab=this.route.snapshot.paramMap.get('alcohol')==='1';
+    this.alcoholValue=this.route.snapshot.paramMap.get('alcohol');
+    this.tab=this.route.snapshot.paramMap.get('tab');
 
 
   }
