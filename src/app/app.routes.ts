@@ -1,17 +1,23 @@
 import { Routes } from '@angular/router';
+import path from 'path';
+import { LoginComponent } from './views/login/login.component';
 
 export const routes: Routes = [
+
   {
+
     path: 'lavado',
     loadComponent: () => import('./views/lavado/lavado.component').then(m => m.LavadoComponent),
     data: {
-      title: 'Lavado'
+      title: 'Lavado',
+      routes:'/lavado'
     }
   },{
     path: 'login',
-    loadComponent: () => import('./views/login/login.component').then(m => m.LoginComponent),
+    component:LoginComponent,
     data: {
-      title: 'Login'
+      title: 'Login',
+      routes:'/login'
     }
   },{
     path: 'registro',

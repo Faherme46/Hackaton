@@ -8,4 +8,5 @@ import { CollectionService } from '../../services/collection.service';
   styleUrl: './alcohol.component.css'
 })
 export class AlcoholComponent {
+
 }
