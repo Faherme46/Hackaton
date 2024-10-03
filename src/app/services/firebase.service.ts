@@ -16728,14 +16728,15 @@ export class FirebaseService {
         let data = doc.data();
         data["dates"] = dates;
 
-        // data["duracion"]=this.getSeconds(doc.get('horaSalida'))-this.getSeconds(doc.get('horaInicio'))/1000
+        data["duracion"]=(this.getSeconds(doc.get('horaSalida'))-this.getSeconds(doc.get('horaInicio')))/1000
         list.push(data)
       });
-      // this.defaultLavado.forEach((element:any) => {
-      //   let dates = this.getTime(element.horaInicio)
-      //   element["dates"] = dates;
-      //   list.push(element)
-      // });
+      this.defaultLavado.forEach((element:any) => {
+        let dates = this.getTime(element.horaInicio)
+        element["dates"] = dates;
+        element["duracion"]=(this.getSeconds(element['horaSalida'])-this.getSeconds(element['horaInicio']))/1000
+        list.push(element)
+      });
 
       // Ejecutar la función callback con los datos actualizados
       callback(list);
@@ -16760,12 +16761,12 @@ export class FirebaseService {
         data["dates"] = dates;
         list.push(data)
       });
-      // this.defaultAlcohol.forEach((element:any) => {
-      //   let dates = this.getTime(element.horaUso)
+      this.defaultAlcohol.forEach((element:any) => {
+        let dates = this.getTime(element.horaUso)
 
-      //   element["dates"] = dates;
-      //   list.push(element)
-      // });
+        element["dates"] = dates;
+        list.push(element)
+      });
 
       // Ejecutar la función callback con los datos actualizados
       callback(list);

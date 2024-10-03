@@ -2,10 +2,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
 import { CollectionService } from '../../services/collection.service';
 import { CommonModule } from '@angular/common';
+import { HistorialComponent } from './historial/historial.component';
 @Component({
   selector: 'app-lavado',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,HistorialComponent],
   templateUrl: './lavado.component.html',
   styleUrl: './lavado.component.css'
 })
@@ -13,6 +14,7 @@ export class LavadoComponent {
 
 
   private unsubscribe: any;
+  private unsubscribe2: any;
   public lavado: any[] = [];
   public doctores: any;
   public alcoholTab: boolean = false;
@@ -21,15 +23,15 @@ export class LavadoComponent {
   }
 
   ngOnInit() {
-
+    this.unsubscribe = this.firebaseService.listenToDoctores((data: any) => {
+          this.doctores = data;  // Actualizar la lista de usuarios en el componente
+        });
     // Escuchar actualizaciones en tiempo real de la colección "Usuarios"
-    this.unsubscribe = this.firebaseService.listenToLavado((data: any) => {
+    this.unsubscribe2 = this.firebaseService.listenToLavado((data: any) => {
       this.lavado = data;  // Actualizar la lista de usuarios en el componente
     });
 
-    this.unsubscribe = this.firebaseService.listenToDoctores((data: any) => {
-      this.doctores = data;  // Actualizar la lista de usuarios en el componente
-    });
+
 
 
 
@@ -41,7 +43,5 @@ export class LavadoComponent {
     }
   }
 
-  getName(id: any) {
-    return this.doctores[id.toString()].nombre;
-  }
+
 }
