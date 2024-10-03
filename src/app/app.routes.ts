@@ -37,5 +37,11 @@ export const routes: Routes = [
     data: {
       title: 'Registro'
     }
+  },{
+    path: 'dashboard',
+    loadComponent: () => import('./views/dashboard/dashboard.component').then(m => m.DashboardComponent),
+    data: {
+      title: 'Dashboard'
+    }
   }
 ];

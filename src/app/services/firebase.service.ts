@@ -20,8 +20,8 @@ export class FirebaseService {
   public defaultDocs:any;
   public defaultAlcohol:any;
   constructor() {
-    this.firebaseConfig = {
 
+    this.firebaseConfig = {
       apiKey: "AIzaSyDL6_b5CigukPtghhtcouIDs1S-gd-62Sg",
       authDomain: "hackaton-b6eed.firebaseapp.com",
       projectId: "hackaton-b6eed",

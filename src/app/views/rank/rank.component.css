@@ -1,0 +1,88 @@
+.ranking-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 800px;
+  margin: 2rem auto;
+  background: linear-gradient(145deg, #f3f4f6, #ffffff);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+h2 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #3498db;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 16px 16px 16px 16px;
+}
+
+td {
+  background-color: #ecf0f1;
+  transition: all 0.3s ease;
+}
+
+tr:nth-child(even) td {
+  background-color: #e0e6e8;
+}
+
+tr:last-child td:first-child {
+  border-radius: 0 0 0 4px;
+}
+
+tr:last-child td:last-child {
+  border-radius: 0 0 8px 0;
+}
+
+tr:hover td {
+  background-color: #d5dbdb;
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Add some flair to the first column (assuming it's the rank) */
+td:first-child {
+  font-weight: bold;
+  color: #e74c3c;
+  font-size: 1.2rem;
+}
+
+/* Style for the second column (assuming it's the name) */
+td:nth-child(2) {
+  font-weight: 600;
+  color: #2980b9;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .ranking-container {
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+}
