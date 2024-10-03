@@ -1,59 +1,119 @@
-@import url('../assets/_variables.scss');
-.header {
-  transition: .5s
+/* Navbar container */
+.navbar {
+  padding: 0;
+  background-color: #e6f3ff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.header {
-  height: 4rem
+/* Brand/Logo */
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #0056b3;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
 }
 
-.nav-link,.nav-item{
+/* Navigation items container */
+.navbar-nav {
   height: 100%;
 }
-@media screen and (min-width: 768px) {
+
+/* Individual nav items */
+.nav-item {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  margin-right: 0.5rem;
+}
+
+/* Lavado de Manos link */
+.nav-item:nth-child(1) .nav-link {
+
+  color: #333;
+}
 
 
 
-  .header_img {
-      width: 50px;
-      height: 50px
+/* Uso de Alcohol link */
+.nav-item:nth-child(2) .nav-link {
+
+  color: #006400;
+}
+
+
+/* Ranking link */
+.nav-item:nth-child(3) .nav-link {
+  background-color: #87cefa;
+}
+
+/* General nav link styles */
+.nav-link {
+  font-size: 1.25rem;
+  padding: 0.7rem 1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  border-radius: 5px 5px 0 0;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  box-shadow: inset 0 -3px 0 #0056b3;
+}
+
+/* Search form */
+.form-control {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid #ced4da;
+  border-radius: 0.25rem 0 0 0.25rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+
+  box-shadow: 0 0 0 0.2rem rgba(0, 86, 179, 0.25);
+}
+
+.btn-outline-success {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+
+  border-radius: 0 0.25rem 0.25rem 0;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-success:hover {
+  color: white;
+}
+
+/* User icon and dropdown */
+.btn-person {
+  font-size: 1.25rem;
+  color: #0056b3;
+  transition: color 0.3s ease;
+}
+
+
+.bi-person-circle {
+  font-size: 1.5rem;
+  margin-right: 0.25rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .navbar-nav {
+    margin-top: 1rem;
   }
 
-  .header_img img {
-      width: 45px
+  .nav-item {
+    margin-bottom: 0.5rem;
   }
 
-
-}
-
-.table-responsive {
-  padding: 0;
-  padding-inline: 0.5rem;
-  padding-bottom: 0rem;
-  position: relative;
-  /* Ajusta según sea necesario */
-  overflow: auto;
-}
-
-
-
-.table-fixed-header thead th,
-.table-fixed-header tfoot td {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  /* Para asegurarse de que el encabezado se superponga */
-}
-
-
-.table-fixed-header tfoot th {
-  position: sticky;
-  bottom: 0;
-  z-index: 1;
-  /* Asegúrate de que el pie se superponga */
-}
-
-.table-fixed-header tbody td {
-
-  top: 4rem;
+  .nav-link {
+    justify-content: center;
+    border-radius: 5px;
+  }
 }
