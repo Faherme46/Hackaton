@@ -87,6 +87,7 @@ body {
 .list-group-item.active {
   background-color: #2980b9;
   border-color: #2980b9;
+  color:#d5dbdb;
 }
 
 .table {
