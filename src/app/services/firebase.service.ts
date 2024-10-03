@@ -16761,12 +16761,12 @@ export class FirebaseService {
         data["dates"] = dates;
         list.push(data)
       });
-      // this.defaultAlcohol.forEach((element:any) => {
-      //   let dates = this.getTime(element.horaUso)
+      this.defaultAlcohol.forEach((element:any) => {
+        let dates = this.getTime(element.horaUso)
 
-      //   element["dates"] = dates;
-      //   list.push(element)
-      // });
+        element["dates"] = dates;
+        list.push(element)
+      });
 
       // Ejecutar la función callback con los datos actualizados
       callback(list);

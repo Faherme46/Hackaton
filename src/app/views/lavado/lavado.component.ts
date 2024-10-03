@@ -2,10 +2,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
 import { CollectionService } from '../../services/collection.service';
 import { CommonModule } from '@angular/common';
+import { HistorialComponent } from './historial/historial.component';
 @Component({
   selector: 'app-lavado',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,HistorialComponent],
   templateUrl: './lavado.component.html',
   styleUrl: './lavado.component.css'
 })
@@ -42,7 +43,5 @@ export class LavadoComponent {
     }
   }
 
-  getName(id: any) {
-    return this.doctores[id.toString()].nombre;
-  }
+
 }

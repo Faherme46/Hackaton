@@ -3,7 +3,10 @@ import path from 'path';
 import { LoginComponent } from './views/login/login.component';
 
 export const routes: Routes = [
-
+  {path:'',
+    redirectTo:'lavado',
+    pathMatch:'full'
+  },
   {
 
     path: 'lavado',

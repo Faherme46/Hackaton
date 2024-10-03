@@ -3,10 +3,11 @@ import { CollectionService } from '../../services/collection.service';
 import { FirebaseService } from '../../services/firebase.service';
 import { CommonModule } from '@angular/common';
 import { Stream } from 'stream';
+import { HistorialComponent } from "./historial/historial.component";
 @Component({
   selector: 'app-alcohol',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HistorialComponent],
   templateUrl: './lavado.component.html',
   styleUrl: './lavado.component.css'
 })
