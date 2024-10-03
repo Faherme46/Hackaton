@@ -1,4 +1,4 @@
-<div class="container-fluid pt-4">
+<div class="container pt-4">
   <div class="card">
     <div class="card-header">
       <h2 class="mb-0">Lavado de manos</h2>
@@ -6,42 +6,40 @@
     <div class="card-body h-80 d-flex p-0">
       <div class="col-3 bg-secondary-subtle">
         <div class="list-group rounded-top-0">
-          <a href="#" class="list-group-item fs-4 list-group-item-action active" aria-current="true">
-           Historial del dia
+          <a href="#" class="list-group-item fs-4 list-group-item-action active"
+            aria-current="true">
+            Historial del dia
           </a>
-          <a href="#" class="list-group-item fs-4 list-group-item-action">A second link item</a>
-          <a href="#" class="list-group-item fs-4 list-group-item-action">A third link item</a>
-          <a href="#" class="list-group-item fs-4 list-group-item-action">A fourth link item</a>
+          <a href="#" class="list-group-item fs-4 list-group-item-action">A
+            second link item</a>
+          <a href="#" class="list-group-item fs-4 list-group-item-action">A
+            third link item</a>
+          <a href="#" class="list-group-item fs-4 list-group-item-action">A
+            fourth link item</a>
         </div>
       </div>
       <div class="col-9 ps-2">
         <table class="table">
           <thead>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Hora</th>
-            <th>Duracion</th>
-            <th>Lugar</th>
-          </thead>
-          <tbody class="table-group-divider">
-            @for (item of lavado; track $index) {
-              <tr>
-                <td>{{item.idlavadodemanos}}</td>
-                <td>
-                  {{item.idUsuario}}
-                </td>
-                <td>{{item.HoradeInicio.toLocaleTimeString('es-ES')}}</td>
-                <td>{{(item.HoradeSalida.getTime()-item.HoradeInicio.getTime())/1000}}</td>
+            <tr>
+              <th>Nombre</th>
+              <th>Lugar</th>
+              <th>Hora</th>
 
-                <td>{{item.Lugarlavado}}</td>
-              </tr>
-            }
+            </tr>
+          </thead>
+          <tbody class="table-group-divider" *ngIf="alcoholTab">
+
+            <tr *ngFor="let item of lavado" >
+              <td>
+                {{item.idUsuario}}
+              </td>
+              <td>{{item.lugarLavado}}</td>
+              <td>{{getTime(item.horaUso)}}</td>
+            </tr>
           </tbody>
         </table>
-
       </div>
-
     </div>
-
   </div>
 </div>

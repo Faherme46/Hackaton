@@ -27,7 +27,7 @@ export const routes: Routes = [
     }
   },{
     path: 'alcohol',
-    loadComponent: () => import('./views/alcohol/alcohol.component').then(m => m.AlcoholComponent),
+    loadComponent: () => import('./views/lavado/alcohol.component').then(m => m.AlcoholComponent),
     data: {
       title: 'Registro'
     }

@@ -39,9 +39,30 @@ export class FirebaseService {
 
     // `onSnapshot` escucha cualquier cambio en tiempo real en la colección "Usuarios"
     const unsubscribe = onSnapshot(usuariosCollection, (querySnapshot) => {
-      const list: any[] = [];
+      const list: any={};
       querySnapshot.forEach((doc) => {
-        list.push(doc.data());
+        list[doc.get('id')]=doc.data();
+      });
+
+      // Ejecutar la función callback con los datos actualizados
+      callback(list);
+    });
+
+    // Puedes devolver `unsubscribe` si deseas detener la escucha en algún momento
+    return unsubscribe;
+  }
+  public listenToDoctores(callback: Function) {
+    const app = initializeApp(this.firebaseConfig);
+    const db = getFirestore(app);
+
+    // Escuchar la colección "Doctores"
+    const usuariosCollection = collection(db, "Doctores");
+
+    // `onSnapshot` escucha cualquier cambio en tiempo real en la colección "Usuarios"
+    const unsubscribe = onSnapshot(usuariosCollection, (querySnapshot) => {
+      const list: any={};
+      querySnapshot.forEach((doc) => {
+        list[doc.id]=doc.data();
       });
 
       // Ejecutar la función callback con los datos actualizados
@@ -56,8 +77,8 @@ export class FirebaseService {
     const app = initializeApp(this.firebaseConfig);
     const db = getFirestore(app);
 
-    // Escuchar la colección "Usuarios"
-    const usuariosCollection = collection(db, "LavadoManos");
+    // Escuchar la colección "Lavado"
+    const usuariosCollection = collection(db, "Lavado");
 
     // `onSnapshot` escucha cualquier cambio en tiempo real en la colección "Usuarios"
     const unsubscribe = onSnapshot(usuariosCollection, (querySnapshot) => {
@@ -77,7 +98,7 @@ export class FirebaseService {
     const app = initializeApp(this.firebaseConfig);
     const db = getFirestore(app);
 
-    // Escuchar la colección "Usuarios"
+    // Escuchar la colección "Alcohol"
     const usuariosCollection = collection(db, "Alcohol");
 
     // `onSnapshot` escucha cualquier cambio en tiempo real en la colección "Usuarios"
@@ -93,6 +114,10 @@ export class FirebaseService {
 
     // Puedes devolver `unsubscribe` si deseas detener la escucha en algún momento
     return unsubscribe;
+  }
+
+  public getDate(str:string ){
+    
   }
 
 }
