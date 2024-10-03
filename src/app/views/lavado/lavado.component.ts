@@ -1,4 +1,4 @@
-import { Component,OnInit,OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
 import { CollectionService } from '../../services/collection.service';
 import { CommonModule } from '@angular/common';
@@ -14,8 +14,8 @@ export class LavadoComponent {
 
   private unsubscribe: any;
   public lavado: any[] = [];
-  public doctores:any;
-  public alcoholTab:boolean=false;
+  public doctores: any;
+  public alcoholTab: boolean = false;
   constructor(private firebaseService: FirebaseService) {
 
   }
@@ -25,13 +25,13 @@ export class LavadoComponent {
     // Escuchar actualizaciones en tiempo real de la colección "Usuarios"
     this.unsubscribe = this.firebaseService.listenToLavado((data: any) => {
       this.lavado = data;  // Actualizar la lista de usuarios en el componente
-
     });
 
     this.unsubscribe = this.firebaseService.listenToDoctores((data: any) => {
       this.doctores = data;  // Actualizar la lista de usuarios en el componente
-      console.log(data)
     });
+
+
 
   }
   ngOnDestroy() {
@@ -41,8 +41,7 @@ export class LavadoComponent {
     }
   }
 
-  getName(id:any){
-
-    return;
+  getName(id: any) {
+    return this.doctores[id.toString()].nombre;
   }
 }
