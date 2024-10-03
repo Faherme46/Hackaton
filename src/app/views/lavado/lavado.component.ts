@@ -25,9 +25,12 @@ export class LavadoComponent {
     // Escuchar actualizaciones en tiempo real de la colección "Usuarios"
     this.unsubscribe = this.firebaseService.listenToLavado((data: any) => {
       this.lavado = data;  // Actualizar la lista de usuarios en el componente
+
     });
+
     this.unsubscribe = this.firebaseService.listenToDoctores((data: any) => {
-      this.lavado = data;  // Actualizar la lista de usuarios en el componente
+      this.doctores = data;  // Actualizar la lista de usuarios en el componente
+      console.log(data)
     });
 
   }
@@ -37,14 +40,9 @@ export class LavadoComponent {
       this.unsubscribe();
     }
   }
-  getTime(str:string){
-      // Obtener la hora y los minutos
-      let date= new Date(str);
-      let horas = date.getHours().toString().padStart(2, '0');   // Devuelve las horas en formato 2 dígitos
-      let minutos = date.getMinutes().toString().padStart(2, '0'); // Devuelve los minutos en formato 2 dígitos
 
-      // Formato hh:mm
-      return `${horas}:${minutos}`;
+  getName(id:any){
 
-   }
+    return;
+  }
 }

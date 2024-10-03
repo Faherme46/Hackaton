@@ -35,7 +35,17 @@
                 {{item.idUsuario}}
               </td>
               <td>{{item.lugarLavado}}</td>
-              <td>{{getTime(item.horaUso)}}</td>
+              <td>{{item.dates.h}}</td>
+            </tr>
+          </tbody>
+          <tbody class="table-group-divider" *ngIf="!alcoholTab">
+
+            <tr *ngFor="let item of lavado" >
+              <td>
+                {{getName(item.idUsuario)}}
+              </td>
+              <td>{{item.lugarLavado}}</td>
+              <td>{{item.dates.h}}</td>
             </tr>
           </tbody>
         </table>

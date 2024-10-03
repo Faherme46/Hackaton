@@ -51,6 +51,7 @@ export class FirebaseService {
     // Puedes devolver `unsubscribe` si deseas detener la escucha en algún momento
     return unsubscribe;
   }
+
   public listenToDoctores(callback: Function) {
     const app = initializeApp(this.firebaseConfig);
     const db = getFirestore(app);
@@ -84,7 +85,12 @@ export class FirebaseService {
     const unsubscribe = onSnapshot(usuariosCollection, (querySnapshot) => {
       const list: any[] = [];
       querySnapshot.forEach((doc) => {
-        list.push(doc.data());
+        let dates=this.getTime(doc.get('horaInicio'))
+        let data=doc.data();
+        data["dates"]=dates;
+
+        // data["duracion"]=this.getSeconds(doc.get('horaSalida'))-this.getSeconds(doc.get('horaInicio'))/1000
+        list.push(data)
       });
 
       // Ejecutar la función callback con los datos actualizados
@@ -105,7 +111,10 @@ export class FirebaseService {
     const unsubscribe = onSnapshot(usuariosCollection, (querySnapshot) => {
       const list: any[] = [];
       querySnapshot.forEach((doc) => {
-        list.push(doc.data());
+        let dates=this.getTime(doc.get('horaUso'))
+        let data=doc.data();
+        data["dates"]=dates;
+        list.push(data)
       });
 
       // Ejecutar la función callback con los datos actualizados
@@ -116,8 +125,26 @@ export class FirebaseService {
     return unsubscribe;
   }
 
-  public getDate(str:string ){
-    
-  }
+  getTime(str:string){
+    // Obtener la hora y los minutos
+    let date= new Date(str);
+    let horas = date.getHours().toString().padStart(2, '0');   // Devuelve las horas en formato 2 dígitos
+    let minutos = date.getMinutes().toString().padStart(2, '0'); // Devuelve los minutos en formato 2 dígitos
+
+    let dates={
+      "y":date.getFullYear(),
+      "m":date.getMonth(),
+      "d":date.getDay(),
+      "h":`${horas}:${minutos}`
+    };
+    // Formato hh:mm
+    return dates;
+ }
+
+ getSeconds(str:string){
+  let date=new Date(str);
+  return date.getTime()
+
+ }
 
 }
