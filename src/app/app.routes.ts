@@ -4,12 +4,12 @@ import { LoginComponent } from './views/login/login.component';
 
 export const routes: Routes = [
   {path:'',
-    redirectTo:'lavado',
+    redirectTo:'higiene/1/1',
     pathMatch:'full'
   },
   {
 
-    path: 'lavado',
+    path: 'higiene/:alcohol/:tab',
     loadComponent: () => import('./views/lavado/lavado.component').then(m => m.LavadoComponent),
     data: {
       title: 'Lavado',
@@ -25,12 +25,6 @@ export const routes: Routes = [
   },{
     path: 'registro',
     loadComponent: () => import('./views/registro/registro.component').then(m => m.RegistroComponent),
-    data: {
-      title: 'Registro'
-    }
-  },{
-    path: 'alcohol',
-    loadComponent: () => import('./views/lavado/alcohol.component').then(m => m.AlcoholComponent),
     data: {
       title: 'Registro'
     }
