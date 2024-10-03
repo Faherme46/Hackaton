@@ -1,7 +1,6 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,NgModule,OnInit } from '@angular/core';
 import { RouterOutlet,Router,NavigationEnd } from '@angular/router';
-import {Title} from '@angular/platform-browser'
-
+import {BrowserModule, Title} from '@angular/platform-browser'
 
 @Component({
   selector: 'app-root',
@@ -33,3 +32,4 @@ export class AppComponent {
     }
   }
 }
+
